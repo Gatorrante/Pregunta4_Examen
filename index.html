@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Juego</title>
+    <script src="phaser.js"></script>
+    <script src="script.js"></script>
+
+    <style>
+        #portada {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="bloque_juego" style="display: none;"></div> 
+    <img id="portada" src="img/Portada.jpeg" alt="Portada del juego">
+    <h2>Diego Alonso M.</h2>
+
+    <script>
+
+        var iniciarJuego = false;
+
+        document.addEventListener("DOMContentLoaded", function() { 
+            
+            var portada = document.getElementById("portada");
+
+            portada.addEventListener("click", function() { 
+ 
+                portada.parentNode.removeChild(portada); 
+
+                document.getElementById("bloque_juego").style.display = "block";
+
+                if (iniciarJuego) {
+                    juego.state.start('principal'); 
+                } else {
+                    iniciarJuego = true;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
